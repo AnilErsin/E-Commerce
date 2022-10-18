@@ -1,0 +1,76 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Category List</h3>
+
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                       <a class="btn btn-success" asp-action="Create" asp-area="Admin" asp-controller="Category">Yeni Kategori</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kategori İsmi</th>
+                            <th>Açıklama</th>
+                            <th>Durum</th>
+                            <th>Toplam Ürün Sayısı</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                           
+                                foreach (var category in Model)
+                                {
+                                    <tr>
+                                        <td>@category.ID</td>
+                                        <td>@category.CategoryName</td>
+                                        <td>@category.Description</td>
+                                        @{
+                                            switch (category.Status)
+                                            {
+                                                case Project5.Entities.Enum.DataStatus.Inserted:
+                                                    <td>Eklendi</td>
+                                                    break;
+                                                case Project5.Entities.Enum.DataStatus.Updated:
+                                                    <td>Güncellendi</td>
+                                                                    break;
+                                                                case Project5.Entities.Enum.DataStatus.Deleted:
+                                                                    break;
+                                                    <td>Silindi</td>
+                                            }
+                                                        }
+                                        <td>
+                                            0
+                                        </td>
+                                        <td>
+                                            <a asp-action="Update" asp-controller="Category" asp-route-id="@category.ID"asp-area="Admin" class="btn btn-xs btn-warning">update</a>
+                                            <a asp-action="Delete" asp-controller="Category" asp-route-id="@category.ID" asp-area="Admin" class="btn btn-xs btn-danger">delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                                            }
+
+
+                        
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

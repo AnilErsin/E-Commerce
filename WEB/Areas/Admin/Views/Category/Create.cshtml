@@ -1,0 +1,38 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Category Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Category Name</label>
+                        <input asp-for="CategoryName" type="text" class="form-control" placeholder="Enter category name">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input asp-for="Description" type="text" class="form-control" placeholder="Enter category description">
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Create Category</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+
+    </div>
+</div>
+

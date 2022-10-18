@@ -1,0 +1,53 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Product Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <input asp-for="ProductName" type="text" class="form-control" placeholder="Enter product name">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input asp-for="Description" type="text" class="form-control" placeholder="Enter product description">
+                    </div>
+                    <div class="form-group">
+                        <label>Unit Price</label>
+                        <input asp-for="UnitPrice" type="text" class="form-control" placeholder="Enter unit price">
+                    </div>
+                    <div class="form-group">
+                        <label>Unit In Stock</label>
+                        <input asp-for="UnitsInStock" type="number" class="form-control" placeholder="Enter unit in stock">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+
+                        <select asp-items="@ViewBag.Categories" asp-for="CategoryID" class="form-control custom-select">
+                            <option selected="" disabled>Please Select Category</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Update Product</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+
+    </div>
+</div>
+

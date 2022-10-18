@@ -1,0 +1,32 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-md-6 mx-auto mt-2">
+        <div class="card">
+            <div class="card-header">
+                <h1>ÜYELİK GİRİŞ</h1>
+            </div>
+            <div class="card-body form-group">
+                <form method="post" >
+                    <div class="mt-2">
+                        <label>Kullanıcı Adı</label>
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                        <input type="text" class="form-control" placeholder="Kullanıcı Adı Girin" asp-for="Username" />
+                    </div>                
+                     <div class="mt-2">
+                        <label>Şifre</label>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <input type="password" class="form-control" placeholder="Şifre Girin" asp-for="Password" />
+                    </div>                    
+                   <button type="submit" class="btn btn-primary mt-2"> Giriş Yap</button>
+                </form>
+                </div>
+            </div>
+      </div>
+</div>
+
+
